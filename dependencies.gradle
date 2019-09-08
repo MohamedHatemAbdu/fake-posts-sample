@@ -1,0 +1,96 @@
+ext {
+
+    // Android
+    minSdkVersion = 19
+    targetSdkVersion = 28
+    androidCompileSdkVersion = 28
+    buildToolsVersion = "28.0.0"
+
+    versionCode = 1
+    versionName = "1.0"
+
+    testInstrumentationRunner = "android.support.test.runner.AndroidJUnitRunner"
+
+
+    // Libraries
+    constraintLayoutVersion = '1.1.2'
+    supportVersion = '1.0.0-rc02'
+    retrofit2Version = '2.4.0'
+    okhttpLoggingVersion = '3.11.0'
+
+    rxJavaVersion = '2.2.2'
+    rxAndroidVersion = '2.1.0'
+    reactiveStreamsVersion = '1.1.0'
+    roomVersion = '2.1.0-alpha01'//'2.0.0-beta01'
+
+    mockitoVersion = '2.8.47'
+    mockitoCoreVersion = '2.21.0'
+    supportTest = '1.1.0-alpha1'
+
+
+
+    //Testing
+    junitVersion = '4.12'
+
+
+
+    // App
+    appDependencies = [
+            kotlin                : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion",
+            appCompat             : "androidx.appcompat:appcompat:$supportVersion",
+            constraintLayout      : "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
+
+
+    ]
+    appTestDependencies = [
+            kotlin                : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion",
+            junit                 : "junit:junit:$junitVersion",
+            mockito   : "org.mockito:mockito-core:$mockitoVersion",
+            testRunner: "androidx.test:runner:$supportTest",
+            testRules : "androidx.test:runner:$supportTest"
+
+
+    ]
+    // Domain
+    domainDependencies = [
+            kotlin       : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion",
+            rxJava       : "io.reactivex.rxjava2:rxjava:$rxJavaVersion",
+            rxAndroid    : "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
+    ]
+    domainTestDependencies = [
+            kotlin    : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion",
+            junit     : "junit:junit:$junitVersion",
+            mockito   : "org.mockito:mockito-core:$mockitoVersion",
+            testRunner: "androidx.test:runner:$supportTest",
+            testRules : "androidx.test:runner:$supportTest"
+    ]
+    // Data
+    dataDependencies = [
+            kotlin                : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion",
+            rxJava                : "io.reactivex.rxjava2:rxjava:$rxJavaVersion",
+            rxAndroid             : "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion",
+            retrofit              : "com.squareup.retrofit2:retrofit:$retrofit2Version",
+            retrofitRxJava2Adapter: "com.squareup.retrofit2:adapter-rxjava2:$retrofit2Version",
+            retrofitMoshiConverter: "com.squareup.retrofit2:converter-moshi:$retrofit2Version",
+            okhttpLogging         : "com.squareup.okhttp3:logging-interceptor:$okhttpLoggingVersion",
+            room                  : "androidx.room:room-runtime:$roomVersion",
+            roomCompiler          : "androidx.room:room-compiler:$roomVersion",
+            roomCommon            : "androidx.room:room-common:$roomVersion",
+            roomRxJava            : "androidx.room:room-rxjava2:$roomVersion",
+    ]
+    dataTestDependencies = [
+            kotlin    : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion",
+            junit     : "junit:junit:$junitVersion",
+            mockito   : "org.mockito:mockito-core:$mockitoVersion",
+            testRunner: "androidx.test:runner:$supportTest",
+            testRules : "androidx.test:runner:$supportTest",
+            room      : "androidx.room:room-testing:$roomVersion"
+    ]
+    // Presentation
+    presentationDependencies = [
+
+    ]
+    presentationTestDependencies = [
+
+    ]
+}
