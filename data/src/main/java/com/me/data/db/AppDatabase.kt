@@ -6,5 +6,7 @@ import com.me.data.entities.PostData
 
 @Database(entities = arrayOf(PostData::class), version = 1)
 abstract class AppDatabase : RoomDatabase() {
-    abstract fun getPostsDao(): PostsDao
+    abstract fun getPostsDao(): PostDao
+    abstract fun getUsersDao(): UserDao
+
 }

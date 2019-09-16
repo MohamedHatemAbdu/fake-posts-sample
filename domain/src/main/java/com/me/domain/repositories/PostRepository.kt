@@ -6,8 +6,8 @@ import io.reactivex.Flowable
 
 interface PostRepository {
 
-    fun getPosts(): Flowable<List<PostEntity>>
-    fun getLocalPosts(): Flowable<List<PostEntity>>
-    fun getRemotePosts(): Flowable<List<PostEntity>>
+    fun getPosts(refresh: Boolean): Flowable<List<PostEntity>>
+
+    fun getPost(postId: String, refresh: Boolean): Flowable<PostEntity>
 
 }

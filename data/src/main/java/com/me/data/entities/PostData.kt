@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey
 import com.me.domain.entities.PostEntity
 import com.squareup.moshi.Json
 
-@Entity(tableName = "posts")
+@Entity(tableName = "post")
 data class PostData(
     @field:Json(name = "userId") val userId: String,
     @PrimaryKey @field:Json(name = "id") val id: String,
