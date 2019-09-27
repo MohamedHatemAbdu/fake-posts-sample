@@ -4,8 +4,8 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.me.data.entities.PostData
 import com.me.data.entities.UserData
+import io.reactivex.Completable
 import io.reactivex.Flowable
 
 @Dao
@@ -15,13 +15,13 @@ interface UserDao {
     fun getAllUsers(): Flowable<List<UserData>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun saveAllUsers(users: List<UserData>): Flowable<List<UserData>>
+    fun saveAllUsers(users: List<UserData>)
 
     @Query("Select * from user where id like :userId")
     fun getUser(userId: String): Flowable<UserData>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun saveUser(user: UserData): Flowable<UserData>
+    fun saveUser(user: UserData)
 
     @Query("DELETE FROM user")
     fun clear()

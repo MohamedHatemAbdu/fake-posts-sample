@@ -17,7 +17,9 @@ class UsersPostsUseCase constructor(
     fun getPosts(refresh: Boolean): Flowable<List<CombinedUserPost>> =
         Flowable.zip(
             userRepository.getUsers(refresh), postRepository.getPosts(refresh),
-            BiFunction { usersList, postsList -> map(usersList, postsList) })
+            BiFunction {
+                    usersList, postsList -> map(usersList, postsList)
+            })
 
 }
 

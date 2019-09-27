@@ -7,10 +7,10 @@ import com.squareup.moshi.Json
 
 @Entity(tableName = "post")
 data class PostData(
-    @field:Json(name = "userId") val userId: String,
-    @PrimaryKey @field:Json(name = "id") val id: String,
-    @field:Json(name = "title") val title: String,
-    @field:Json(name = "body") val body: String
+    @field:Json(name = "UserId") val userId: String,
+    @PrimaryKey @field:Json(name = "Id") val id: String,
+    @field:Json(name = "Title") val title: String,
+    @field:Json(name = "Body") val body: String
 )
 
 fun PostData.mapToDomain(): PostEntity = PostEntity(userId, id, title, body)

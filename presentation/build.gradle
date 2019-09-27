@@ -1,4 +1,4 @@
-apply plugin: 'com.android.library'
+apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
@@ -22,12 +22,48 @@ android {
 
 dependencies {
 
+    def presentationDependencies = rootProject.ext.presentationDependencies
+    def presentationTestDependencies = rootProject.ext.presentationTestDependencies
     implementation fileTree(include: ['*.jar'], dir: 'libs')
+
+    // other
+    implementation presentationDependencies.kotlin
+    implementation presentationDependencies.kotlinReflections
+
+
+    // android support libs
+    implementation presentationDependencies.material
+    implementation presentationDependencies.appCompat
+    implementation presentationDependencies.recyclerview
+    implementation presentationDependencies.cardview
+
+    // network
+    implementation presentationDependencies.retrofit
+    implementation presentationDependencies.retrofitMoshiConverter
+    implementation presentationDependencies.retrofitRxJava2Adapter
+    implementation presentationDependencies.okhttpLogging
+
+    // database
+    implementation presentationDependencies.room
+    kapt presentationDependencies.roomCompiler
+    implementation presentationDependencies.roomCommon
+    implementation presentationDependencies.roomRxJava
+
+    //UI
+    implementation presentationDependencies.constraintLayout
+    implementation presentationDependencies.glide
+
+
+    // dependencyInjection
+    implementation presentationDependencies.koinAndroid
+    implementation presentationDependencies.koinViewModel
+
+    implementation project(':data')
+    implementation project(':domain')
 
 
 }
 repositories {
     mavenCentral()
     google()
-    jcenter()
 }

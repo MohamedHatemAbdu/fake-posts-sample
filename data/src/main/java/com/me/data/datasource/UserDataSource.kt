@@ -7,11 +7,11 @@ interface UserCacheDataSource {
 
     fun getUsers(): Flowable<List<UserEntity>>
 
-    fun setUsers(usersList: List<UserEntity>): Flowable<List<UserEntity>>
+    fun setUsers(usersList: List<UserEntity>)
 
     fun getUser(userId: String): Flowable<UserEntity>
 
-    fun setUser(post: UserEntity): Flowable<UserEntity>
+    fun setUser(post: UserEntity)
 }
 
 interface UserRemoteDataSource {

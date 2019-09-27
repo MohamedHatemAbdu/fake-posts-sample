@@ -22,29 +22,30 @@ ext {
     rxAndroidVersion = '2.1.0'
     reactiveStreamsVersion = '1.1.0'
     roomVersion = '2.1.0-alpha01'//'2.0.0-beta01'
+    koinVersion = '2.0.0-beta-1'
+    glideVersion = "4.9.0"
 
+
+    // testing
     mockitoVersion = '2.8.47'
     mockitoCoreVersion = '2.21.0'
     supportTest = '1.1.0-alpha1'
 
 
-
-    //Testing
     junitVersion = '4.12'
-
 
 
     // App
     appDependencies = [
-            kotlin                : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion",
-            appCompat             : "androidx.appcompat:appcompat:$supportVersion",
-            constraintLayout      : "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
+            kotlin          : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion",
+            appCompat       : "androidx.appcompat:appcompat:$supportVersion",
+            constraintLayout: "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
 
 
     ]
     appTestDependencies = [
-            kotlin                : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion",
-            junit                 : "junit:junit:$junitVersion",
+            kotlin    : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion",
+            junit     : "junit:junit:$junitVersion",
             mockito   : "org.mockito:mockito-core:$mockitoVersion",
             testRunner: "androidx.test:runner:$supportTest",
             testRules : "androidx.test:runner:$supportTest"
@@ -53,9 +54,9 @@ ext {
     ]
     // Domain
     domainDependencies = [
-            kotlin       : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion",
-            rxJava       : "io.reactivex.rxjava2:rxjava:$rxJavaVersion",
-            rxAndroid    : "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
+            kotlin   : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion",
+            rxJava   : "io.reactivex.rxjava2:rxjava:$rxJavaVersion",
+            rxAndroid: "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
     ]
     domainTestDependencies = [
             kotlin    : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion",
@@ -76,7 +77,7 @@ ext {
             room                  : "androidx.room:room-runtime:$roomVersion",
             roomCompiler          : "androidx.room:room-compiler:$roomVersion",
             roomCommon            : "androidx.room:room-common:$roomVersion",
-            roomRxJava            : "androidx.room:room-rxjava2:$roomVersion",
+            roomRxJava            : "androidx.room:room-rxjava2:$roomVersion"
     ]
     dataTestDependencies = [
             kotlin    : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion",
@@ -88,9 +89,34 @@ ext {
     ]
     // Presentation
     presentationDependencies = [
+            kotlin          : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion",
+            kotlinReflections: "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion",
+            rxJava          : "io.reactivex.rxjava2:rxjava:$rxJavaVersion",
+            rxAndroid       : "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion",
+            retrofit              : "com.squareup.retrofit2:retrofit:$retrofit2Version",
+            retrofitRxJava2Adapter: "com.squareup.retrofit2:adapter-rxjava2:$retrofit2Version",
+            retrofitMoshiConverter: "com.squareup.retrofit2:converter-moshi:$retrofit2Version",
+            okhttpLogging         : "com.squareup.okhttp3:logging-interceptor:$okhttpLoggingVersion",
+            room                  : "androidx.room:room-runtime:$roomVersion",
+            roomCompiler          : "androidx.room:room-compiler:$roomVersion",
+            roomCommon            : "androidx.room:room-common:$roomVersion",
+            roomRxJava            : "androidx.room:room-rxjava2:$roomVersion",
+            appCompat       : "androidx.appcompat:appcompat:$supportVersion",
+            material        : "com.google.android.material:material:$supportVersion",
+            recyclerview    : "androidx.recyclerview:recyclerview:$supportVersion",
+            cardview        : "androidx.cardview:cardview:$supportVersion",
+            koinAndroid     : "org.koin:koin-android:$koinVersion",
+            koinViewModel   : "org.koin:koin-androidx-viewmodel:$koinVersion",
+            glide         : "com.github.bumptech.glide:glide:$glideVersion",
+            constraintLayout: "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
 
     ]
     presentationTestDependencies = [
-
+            kotlin    : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion",
+            junit     : "junit:junit:$junitVersion",
+            mockito   : "org.mockito:mockito-core:$mockitoVersion",
+            testRunner: "androidx.test:runner:$supportTest",
+            testRules : "androidx.test:runner:$supportTest",
+            room      : "androidx.room:room-testing:$roomVersion"
     ]
 }
