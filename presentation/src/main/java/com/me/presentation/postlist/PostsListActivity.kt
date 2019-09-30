@@ -1,7 +1,6 @@
 package com.me.presentation.postlist
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.google.android.material.snackbar.Snackbar
@@ -12,8 +11,8 @@ import com.me.presentation.extenstions.stopRefreshing
 import com.me.presentation.model.PostItem
 import com.me.presentation.model.Resource
 import com.me.presentation.model.ResourceState
+import com.me.presentation.postdetails.PostDetailsActivity
 import kotlinx.android.synthetic.main.activity_post_list.*
-import kotlinx.android.synthetic.main.item_list_post.*
 import org.koin.androidx.viewmodel.ext.viewModel
 
 class PostsListActivity : AppCompatActivity() {
@@ -21,7 +20,14 @@ class PostsListActivity : AppCompatActivity() {
     private val vm: PostListViewModel by viewModel()
 
     private val itemClick: (PostItem) -> Unit =
-        { Toast.makeText(applicationContext, it.title, Toast.LENGTH_LONG).show() }
+        {
+
+            PostDetailsActivity.navigateTo(
+                this@PostsListActivity,
+                PostDetailsActivity::class.java, it.userId,
+                it.postId
+            )
+        }
 
     private val adapter = PostListAdapter(itemClick)
 

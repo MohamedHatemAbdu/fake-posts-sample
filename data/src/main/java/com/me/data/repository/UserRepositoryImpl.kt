@@ -14,9 +14,9 @@ class UserRepositoryImpl(
 
     val LOG_TAG = "UserRepositoryImpl"
 
-    override fun getUsers(refresh: Boolean): Flowable<List<UserEntity>> {
+    override fun getUsers(refresh: Boolean): Flowable<List<UserEntity>> =
 
-        return when (refresh) {
+        when (refresh) {
             true -> {
                 userRemoteDataSource.getUsers().flatMap {
                     Log.d(LOG_TAG, "set remote $it")
@@ -26,10 +26,10 @@ class UserRepositoryImpl(
             }
             false -> userCacheDataSource.getUsers().onErrorResumeNext(getUsers(true))
         }
-    }
 
-    override fun getUser(userId: String, refresh: Boolean): Flowable<UserEntity> {
-        return when (refresh) {
+
+    override fun getUser(userId: String, refresh: Boolean): Flowable<UserEntity> =
+        when (refresh) {
             true -> {
                 userRemoteDataSource.getUser(userId).flatMap {
                     userCacheDataSource.setUser(it)
@@ -39,5 +39,5 @@ class UserRepositoryImpl(
             }
             false -> userCacheDataSource.getUser(userId).onErrorResumeNext(getUser(userId, true))
         }
-    }
+
 }

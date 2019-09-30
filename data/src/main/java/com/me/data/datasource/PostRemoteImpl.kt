@@ -11,15 +11,14 @@ class PostRemoteImpl constructor(private val api: PostsApi) : PostRemoteDataSour
 
     val LOG_TAG = "PostRemoteImpl"
 
-    override fun getPosts(): Flowable<List<PostEntity>> {
-        return api.getPosts().map {
+    override fun getPosts(): Flowable<List<PostEntity>> =
+        api.getPosts().map {
             Log.d(LOG_TAG, "set posts remote ${it.size}")
             it.mapToDomain()
         }
 
-    }
 
-    override fun getPost(postId: String): Flowable<PostEntity> {
-        return api.getPost(postId).map { it.mapToDomain() }
-    }
+    override fun getPost(postId: String): Flowable<PostEntity> =
+        api.getPost(postId).map { it.mapToDomain() }
+
 }

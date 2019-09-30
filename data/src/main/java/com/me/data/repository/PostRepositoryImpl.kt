@@ -16,8 +16,8 @@ class PostRepositoryImpl
 
     val LOG_TAG = "PostRepositoryImpl"
 
-    override fun getPosts(refresh: Boolean): Flowable<List<PostEntity>> {
-        return when (refresh) {
+    override fun getPosts(refresh: Boolean): Flowable<List<PostEntity>> =
+        when (refresh) {
 
             true -> {
                 postRemoteDataSource.getPosts().flatMap {
@@ -28,13 +28,13 @@ class PostRepositoryImpl
 
             }
             false -> postCacheDataSource.getPosts().onErrorResumeNext(getPosts(true))
+
+
         }
 
-    }
 
-
-    override fun getPost(postId: String, refresh: Boolean): Flowable<PostEntity> {
-        return when (refresh) {
+    override fun getPost(postId: String, refresh: Boolean): Flowable<PostEntity> =
+        when (refresh) {
 
             true -> {
                 postRemoteDataSource.getPost(postId).flatMap {
@@ -45,7 +45,7 @@ class PostRepositoryImpl
             }
             false -> postCacheDataSource.getPost(postId).onErrorResumeNext(getPost(postId, true))
         }
-    }
+
 
 }
 

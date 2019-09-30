@@ -10,6 +10,18 @@ import com.bumptech.glide.request.RequestOptions
 
 
 
+fun View.visible() {
+    visibility = View.VISIBLE
+}
+
+fun View.invisible() {
+    visibility = View.INVISIBLE
+}
+
+fun View.gone() {
+    visibility = View.GONE
+}
+
 fun ImageView.loadAvatar(email: String) =
     loadImageRound("https://api.adorable.io/avatars/285/$email")
 

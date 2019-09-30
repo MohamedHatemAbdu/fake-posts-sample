@@ -13,14 +13,14 @@ class UserRemoteImpl constructor(private val api: UsersApi) : UserRemoteDataSour
 
     val LOG_TAG = "UserRemoteImpl"
 
-    override fun getUsers(): Flowable<List<UserEntity>> {
-        return api.getUsers().map {
+    override fun getUsers(): Flowable<List<UserEntity>> =
+         api.getUsers().map {
             Log.d(LOG_TAG, "set users remote ${it.size}")
             it.mapToDomain()
         }
-    }
 
-    override fun getUser(userId: String): Flowable<UserEntity> {
-        return api.getUser(userId).map { it.mapToDomain() }
-    }
+
+    override fun getUser(userId: String): Flowable<UserEntity> =
+         api.getUser(userId).map { it.mapToDomain() }
+
 }
