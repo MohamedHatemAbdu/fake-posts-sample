@@ -27,8 +27,7 @@ ext {
 
 
     // testing
-    mockitoVersion = '2.8.47'
-    mockitoCoreVersion = '2.21.0'
+    mockitoKotlinVersion = '2.1.0'
     supportTest = '1.1.0-alpha1'
 
 
@@ -46,7 +45,7 @@ ext {
     appTestDependencies = [
             kotlin    : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion",
             junit     : "junit:junit:$junitVersion",
-            mockito   : "org.mockito:mockito-core:$mockitoVersion",
+            mockito   : "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlinVersion",
             testRunner: "androidx.test:runner:$supportTest",
             testRules : "androidx.test:runner:$supportTest"
 
@@ -61,7 +60,7 @@ ext {
     domainTestDependencies = [
             kotlin    : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion",
             junit     : "junit:junit:$junitVersion",
-            mockito   : "org.mockito:mockito-core:$mockitoVersion",
+            mockito   : "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlinVersion",
             testRunner: "androidx.test:runner:$supportTest",
             testRules : "androidx.test:runner:$supportTest"
     ]
@@ -82,9 +81,7 @@ ext {
     dataTestDependencies = [
             kotlin    : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion",
             junit     : "junit:junit:$junitVersion",
-            mockito   : "org.mockito:mockito-core:$mockitoVersion",
-            testRunner: "androidx.test:runner:$supportTest",
-            testRules : "androidx.test:runner:$supportTest",
+            mockitoKotlin   : "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlinVersion",
             room      : "androidx.room:room-testing:$roomVersion"
     ]
     // Presentation
@@ -114,7 +111,7 @@ ext {
     presentationTestDependencies = [
             kotlin    : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion",
             junit     : "junit:junit:$junitVersion",
-            mockito   : "org.mockito:mockito-core:$mockitoVersion",
+            mockito   : "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlinVersion",
             testRunner: "androidx.test:runner:$supportTest",
             testRules : "androidx.test:runner:$supportTest",
             room      : "androidx.room:room-testing:$roomVersion"
