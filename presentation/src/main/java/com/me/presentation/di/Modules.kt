@@ -5,6 +5,9 @@ import com.me.data.api.CommentsApi
 import com.me.data.api.PostsApi
 import com.me.data.api.UsersApi
 import com.me.data.datasource.*
+import com.me.data.datasource.cache.CommentCacheImpl
+import com.me.data.datasource.cache.PostCacheImpl
+import com.me.data.datasource.cache.UserCacheImpl
 import com.me.data.db.AppDatabase
 import com.me.data.repository.CommentRepositoryImpl
 import com.me.domain.repositories.*

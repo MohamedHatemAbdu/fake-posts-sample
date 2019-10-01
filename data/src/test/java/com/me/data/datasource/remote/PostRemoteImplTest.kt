@@ -1,6 +1,7 @@
-package com.me.data.datasource
+package com.me.data.datasource.remote
 
 import com.me.data.api.PostsApi
+import com.me.data.datasource.PostRemoteImpl
 import com.me.data.entities.mapToDomain
 import com.me.data.postData
 import com.nhaarman.mockitokotlin2.mock

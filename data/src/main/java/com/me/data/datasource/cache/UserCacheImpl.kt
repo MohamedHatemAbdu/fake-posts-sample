@@ -1,7 +1,8 @@
-package com.me.data.datasource
+package com.me.data.datasource.cache
 
 
 import android.util.Log
+import com.me.data.datasource.UserCacheDataSource
 import com.me.data.db.AppDatabase
 import com.me.data.db.UserDao
 import com.me.data.entities.mapToData

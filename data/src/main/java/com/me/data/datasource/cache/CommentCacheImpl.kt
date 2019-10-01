@@ -1,14 +1,13 @@
-package com.me.data.datasource
+package com.me.data.datasource.cache
 
 
 import android.util.Log
+import com.me.data.datasource.CommentCacheDataSource
 import com.me.data.db.AppDatabase
 import com.me.data.db.CommentDao
-import com.me.data.db.PostDao
 import com.me.data.entities.mapToData
 import com.me.data.entities.mapToDomain
 import com.me.domain.entities.CommentEntity
-import com.me.domain.entities.PostEntity
 import io.reactivex.Flowable
 
 class CommentCacheImpl(private val database: AppDatabase) : CommentCacheDataSource {
