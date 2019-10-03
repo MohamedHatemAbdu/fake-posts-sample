@@ -29,7 +29,7 @@ class PostDetailsViewModel(
 
     fun getPost(ids: UserIdPostId) {
         compositeDisposable.add(
-            userPostUseCase.getPosts(
+            userPostUseCase.getPost(
                 ids.userId, ids.postId, false
             ).subscribeOn(Schedulers.io()).map { it.mapToPresentation() }
                 .subscribe({ post.postValue(it) }, { })

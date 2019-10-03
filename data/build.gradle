@@ -68,7 +68,7 @@ dependencies {
     androidTestImplementation dataTestDependencies.androidTestCore
 
 //    testImplementation dataTestDependencies.roomTesting
-    androidTestImplementation dataTestDependencies.espressoCore
+//    androidTestImplementation dataTestDependencies.espressoCore
 //    androidTestImplementation dataTestDependencies.espressoContrib
 //    androidTestImplementation dataTestDependencies.espressoIdlingResource
 

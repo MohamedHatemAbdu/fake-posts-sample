@@ -61,11 +61,11 @@ ext {
             rxAndroid: "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
     ]
     domainTestDependencies = [
-            kotlin    : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion",
-            junit     : "junit:junit:$junitVersion",
-            mockito   : "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlinVersion",
-            testRunner: "androidx.test:runner:$supportTest",
-            testRules : "androidx.test:runner:$supportTest"
+            kotlin       : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion",
+            junit        : "junit:junit:$junitVersion",
+            mockitoKotlin: "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlinVersion",
+            testRunner   : "androidx.test:runner:$supportTest",
+            testRules    : "androidx.test:runner:$supportTest",
     ]
     // Data
     dataDependencies = [
@@ -91,7 +91,7 @@ ext {
 
             androidTestCore: "androidx.test:core:$supportTestCore",
 //
-            espressoCore          : "androidx.test.espresso:espresso-core:$espressoVersion",
+//            espressoCore          : "androidx.test.espresso:espresso-core:$espressoVersion",
 //            espressoContrib       : ("androidx.test.espresso:espresso-contrib:$espressoVersion"),
 //            espressoIdlingResource: "androidx.test.espresso:espresso-idling-resource:$espressoVersion",
 //            roomTesting           : "androidx.room:room-testing:$roomVersion"

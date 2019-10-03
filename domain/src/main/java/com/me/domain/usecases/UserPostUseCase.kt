@@ -27,7 +27,7 @@ class UserPostUseCase constructor(
     private val userRepository: UserRepository,
     private val postRepository: PostRepository
 ) {
-    fun getPosts(userId: String, postId: String, refresh: Boolean): Flowable<CombinedUserPost> =
+    fun getPost(userId: String, postId: String, refresh: Boolean): Flowable<CombinedUserPost> =
         Flowable.zip(
             userRepository.getUser(userId, refresh), postRepository.getPost(postId, refresh),
             BiFunction { user, post -> map(user, post) }
