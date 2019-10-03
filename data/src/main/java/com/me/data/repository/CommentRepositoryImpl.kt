@@ -19,13 +19,12 @@ class CommentRepositoryImpl(
 
             true -> {
                 commentRemoteDataSource.getComments(postId).flatMap {
-                    Log.d(LOG_TAG, "set remote $it")
                     commentCacheDataSource.setComments(postId, it)
-                    commentCacheDataSource.getComments(postId)
                 }
 
             }
-            false -> commentCacheDataSource.getComments(postId).onErrorResumeNext(getComments(postId, true))
+            false -> commentCacheDataSource.getComments(postId)
+                .onErrorResumeNext { t: Throwable -> getComments(postId, true) }
         }
 
 
