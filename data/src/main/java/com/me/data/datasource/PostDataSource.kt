@@ -7,11 +7,11 @@ interface PostCacheDataSource {
 
     fun getPosts(): Flowable<List<PostEntity>>
 
-    fun setPosts(postsList: List<PostEntity>)
+    fun setPosts(postsList: List<PostEntity>): Flowable<List<PostEntity>>
 
     fun getPost(postId: String): Flowable<PostEntity>
 
-    fun setPost(post: PostEntity)
+    fun setPost(post: PostEntity): Flowable<PostEntity>
 
 }
 

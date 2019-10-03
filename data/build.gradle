@@ -18,6 +18,16 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    sourceSets {
+        String sharedTestDir = 'src/sharedTest/java'
+        test {
+            java.srcDir sharedTestDir
+        }
+        androidTest {
+            java.srcDir sharedTestDir
+        }
+    }
 }
 
 dependencies {
@@ -50,8 +60,18 @@ dependencies {
     // test
     testImplementation dataTestDependencies.junit
     testImplementation dataTestDependencies.mockitoKotlin
-//    androidTestImplementation dataTestDependencies.testRunner
-//    testImplementation dataTestDependencies.room
+
+
+    androidTestImplementation dataTestDependencies.testRunner
+    androidTestImplementation dataTestDependencies.testRules
+//    androidTestImplementation dataTestDependencies.supportAnnotations
+    androidTestImplementation dataTestDependencies.androidTestCore
+
+//    testImplementation dataTestDependencies.roomTesting
+    androidTestImplementation dataTestDependencies.espressoCore
+//    androidTestImplementation dataTestDependencies.espressoContrib
+//    androidTestImplementation dataTestDependencies.espressoIdlingResource
+
 
     implementation project(':domain')
 }

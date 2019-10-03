@@ -1,7 +1,6 @@
 package com.me.data.datasource.cache
 
 
-import android.util.Log
 import com.me.data.datasource.UserCacheDataSource
 import com.me.data.db.AppDatabase
 import com.me.data.db.UserDao
@@ -12,7 +11,6 @@ import io.reactivex.Flowable
 
 class UserCacheImpl(private val database: AppDatabase) : UserCacheDataSource {
 
-    val LOG_TAG = "UserCacheImpl"
 
     private val dao: UserDao = database.getUsersDao()
 
@@ -25,10 +23,10 @@ class UserCacheImpl(private val database: AppDatabase) : UserCacheDataSource {
         }
 
 
-    override fun setUsers(usersList: List<UserEntity>) {
+    override fun setUsers(usersList: List<UserEntity>): Flowable<List<UserEntity>> {
         dao.clear()
-        Log.d(LOG_TAG, "save remote into db $usersList")
         dao.saveAllUsers(usersList.mapToData())
+        return getUsers()
     }
 
     override fun getUser(userId: String): Flowable<UserEntity> =
@@ -37,8 +35,10 @@ class UserCacheImpl(private val database: AppDatabase) : UserCacheDataSource {
         }
 
 
-    override fun setUser(post: UserEntity) =
+    override fun setUser(post: UserEntity): Flowable<UserEntity> {
         dao.saveUser(post.mapToData())
+        return getUser(post.id)
+    }
 
 
 }

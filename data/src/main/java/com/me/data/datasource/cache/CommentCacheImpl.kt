@@ -1,7 +1,6 @@
 package com.me.data.datasource.cache
 
 
-import android.util.Log
 import com.me.data.datasource.CommentCacheDataSource
 import com.me.data.db.AppDatabase
 import com.me.data.db.CommentDao
@@ -27,9 +26,9 @@ class CommentCacheImpl(private val database: AppDatabase) : CommentCacheDataSour
         }
 
 
-    override fun setComments(postId: String, commentsList: List<CommentEntity>) {
-        Log.d(LOG_TAG, "save remote into db $commentsList")
+    override fun setComments(postId: String, commentsList: List<CommentEntity>): Flowable<List<CommentEntity>> {
         dao.saveAllComments(commentsList.mapToData())
+        return getComments(postId)
     }
 
 
