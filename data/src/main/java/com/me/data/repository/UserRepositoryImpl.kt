@@ -1,6 +1,5 @@
 package com.me.domain.repositories
 
-import android.util.Log
 import com.me.data.datasource.UserCacheDataSource
 import com.me.data.datasource.UserRemoteDataSource
 import com.me.domain.entities.UserEntity
@@ -12,19 +11,17 @@ class UserRepositoryImpl(
     val userRemoteDataSource: UserRemoteDataSource
 ) : UserRepository {
 
-    val LOG_TAG = "UserRepositoryImpl"
 
     override fun getUsers(refresh: Boolean): Flowable<List<UserEntity>> =
 
         when (refresh) {
             true -> {
                 userRemoteDataSource.getUsers().flatMap {
-                    Log.d(LOG_TAG, "set remote $it")
                     userCacheDataSource.setUsers(it)
-                    userCacheDataSource.getUsers()
                 }
             }
-            false -> userCacheDataSource.getUsers().onErrorResumeNext(getUsers(true))
+            false -> userCacheDataSource.getUsers()
+                .onErrorResumeNext { t: Throwable -> getUsers(true) }
         }
 
 
@@ -33,11 +30,10 @@ class UserRepositoryImpl(
             true -> {
                 userRemoteDataSource.getUser(userId).flatMap {
                     userCacheDataSource.setUser(it)
-                    userCacheDataSource.getUser(userId)
-
                 }
             }
-            false -> userCacheDataSource.getUser(userId).onErrorResumeNext(getUser(userId, true))
+            false -> userCacheDataSource.getUser(userId)
+                .onErrorResumeNext { t: Throwable -> getUser(userId, true) }
         }
 
 }

@@ -35,9 +35,9 @@ class UserCacheImpl(private val database: AppDatabase) : UserCacheDataSource {
         }
 
 
-    override fun setUser(post: UserEntity): Flowable<UserEntity> {
-        dao.saveUser(post.mapToData())
-        return getUser(post.id)
+    override fun setUser(user: UserEntity): Flowable<UserEntity> {
+        dao.saveUser(user.mapToData())
+        return getUser(user.id)
     }
 
 

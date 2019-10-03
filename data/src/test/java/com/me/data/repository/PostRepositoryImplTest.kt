@@ -20,7 +20,7 @@ class PostRepositoryImplTest {
     private val mockCacheDataSource: PostCacheDataSource = mock()
     private val mockRemoteDataSource: PostRemoteDataSource = mock()
 
-    private val postId = postData.id
+    private val postId = postEntity.id
 
     private val cacheItem = postEntity.copy(title = "cache")
     private val remoteItem = postEntity.copy(title = "remote")
