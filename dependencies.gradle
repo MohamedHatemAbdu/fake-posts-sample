@@ -28,6 +28,7 @@ ext {
 
     // testing
     mockitoKotlinVersion = '2.1.0'
+    mockitoKotlinInlineVersion = "3.0.0"
     supportTest = '1.1.0-alpha1'
     supportTestCore = '1.0.0'
 
@@ -35,6 +36,7 @@ ext {
 
 
     junitVersion = '4.12'
+    archlifecycleVersion = "2.0.0"
 
 
     // App
@@ -63,9 +65,7 @@ ext {
     domainTestDependencies = [
             kotlin       : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion",
             junit        : "junit:junit:$junitVersion",
-            mockitoKotlin: "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlinVersion",
-            testRunner   : "androidx.test:runner:$supportTest",
-            testRules    : "androidx.test:runner:$supportTest",
+            mockitoKotlin: "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlinVersion"
     ]
     // Data
     dataDependencies = [
@@ -121,10 +121,11 @@ ext {
 
     ]
     presentationTestDependencies = [
-            kotlin    : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion",
-            junit     : "junit:junit:$junitVersion",
-            mockito   : "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlinVersion",
-            testRunner: "androidx.test:runner:$supportTest",
-            room      : "androidx.room:room-testing:$roomVersion"
+            kotlin              : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion",
+            junit               : "junit:junit:$junitVersion",
+            mockitoKotlin       : "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlinVersion",
+            mockitoKotlinInline : "org.mockito:mockito-inline:$mockitoKotlinInlineVersion",
+            archlifecycleTesting: "androidx.arch.core:core-testing:$archlifecycleVersion"
+
     ]
 }

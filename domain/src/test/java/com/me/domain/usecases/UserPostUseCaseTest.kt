@@ -1,7 +1,9 @@
 package com.me.domain.usecases
 
+import com.me.domain.postEntity
 import com.me.domain.repositories.PostRepository
 import com.me.domain.repositories.UserRepository
+import com.me.domain.userEntity
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever

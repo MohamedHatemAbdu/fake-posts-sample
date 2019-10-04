@@ -14,7 +14,6 @@ dependencies {
     // test
     testImplementation domainTestDependencies.junit
     testImplementation domainTestDependencies.mockitoKotlin
-    implementation 'junit:junit:4.12'
 
 }
 repositories {

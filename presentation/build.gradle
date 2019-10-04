@@ -58,6 +58,14 @@ dependencies {
     implementation presentationDependencies.koinAndroid
     implementation presentationDependencies.koinViewModel
 
+
+
+    // test
+    testImplementation presentationTestDependencies.junit
+    testImplementation presentationTestDependencies.mockitoKotlin
+    testImplementation presentationTestDependencies.mockitoKotlinInline
+    testImplementation presentationTestDependencies.archlifecycleTesting
+
     implementation project(':data')
     implementation project(':domain')
 

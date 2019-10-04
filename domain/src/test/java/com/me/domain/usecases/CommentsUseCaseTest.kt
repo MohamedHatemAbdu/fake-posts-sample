@@ -1,5 +1,7 @@
 package com.me.domain.usecases
 
+import com.me.domain.commentEntity
+import com.me.domain.postEntity
 import com.me.domain.repositories.CommentRepository
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.verify

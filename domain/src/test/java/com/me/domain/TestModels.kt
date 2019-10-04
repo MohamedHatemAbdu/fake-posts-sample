@@ -1,4 +1,4 @@
-package com.me.domain.usecases
+package com.me.domain
 
 
 import com.me.domain.entities.CommentEntity
