@@ -44,7 +44,7 @@ Articles
 
 Project status
 -
-Still in working in the below points :
+Still working in progress in the below points :
 
 - Integratring Circle CI.
 - Unit tests.
