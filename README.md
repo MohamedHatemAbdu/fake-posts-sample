@@ -13,7 +13,6 @@ Personal project to try out things inspired from [Android-Kotlin-Clean-Architect
 - [ktlint (Kotlin Style Guide Static Code Analysis Tool)](https://github.com/shyiko/ktlint) [Kotlin Style Guide](https://android.github.io/kotlin-guides/style.html)
 - [gradle versions plugin (Dependencies Updates)](https://github.com/ben-manes/gradle-versions-plugin)
 
-[Sample Posts Feature Module (Post List and Post Detail screen with comments)](https://github.com/sanogueralorenzo/Android-Kotlin-Clean-Architecture/tree/master/posts)
 
 Discussions
 -
