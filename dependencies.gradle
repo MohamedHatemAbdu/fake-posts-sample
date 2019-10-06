@@ -9,7 +9,7 @@ ext {
     versionCode = 1
     versionName = "1.0"
 
-    testInstrumentationRunner = "android.support.test.runner.AndroidJUnitRunner"
+    testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
 
     // Libraries
@@ -31,12 +31,10 @@ ext {
     mockitoKotlinInlineVersion = "3.0.0"
     supportTest = '1.1.0-alpha1'
     supportTestCore = '1.0.0'
-
     espressoVersion = '3.1.0-alpha1'
-
-
     junitVersion = '4.12'
     archlifecycleVersion = "2.0.0"
+    androidMockitoVersion = "2.11.0"
 
 
     // App
@@ -85,16 +83,11 @@ ext {
             kotlin         : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion",
             junit          : "junit:junit:$junitVersion",
             mockitoKotlin  : "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlinVersion",
-            testRunner     : "androidx.test:runner:$supportTest",
-            testRules      : "androidx.test:rules:$supportTest",
-//          supportAnnotations    : "androidx.annotation:annotation:$supportVersion",
+//            testRunner     : "androidx.test:runner:$supportTest",
+//            testRules      : "androidx.test:rules:$supportTest",
+//            androidTestCore: "androidx.test:core:$supportTestCore",
+//            androidMockito : "org.mockito:mockito-android:$androidMockitoVersion"
 
-            androidTestCore: "androidx.test:core:$supportTestCore",
-//
-//            espressoCore          : "androidx.test.espresso:espresso-core:$espressoVersion",
-//            espressoContrib       : ("androidx.test.espresso:espresso-contrib:$espressoVersion"),
-//            espressoIdlingResource: "androidx.test.espresso:espresso-idling-resource:$espressoVersion",
-//            roomTesting           : "androidx.room:room-testing:$roomVersion"
     ]
     // Presentation
     presentationDependencies = [
