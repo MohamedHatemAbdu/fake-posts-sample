@@ -21,7 +21,7 @@ Refer to the issues section: https://github.com/MohamedHatem/fake-posts-sample/i
 
 Social Media
 -
-[Twitter](https://twitter.com/MohamedHatem92) |  [LinkedIn](linkedin.com/in/mohamedhatemabdu)
+[Twitter](https://twitter.com/MohamedHatem92) |  [LinkedIn](https://linkedin.com/in/mohamedhatemabdu)
 
 Articles
 -
