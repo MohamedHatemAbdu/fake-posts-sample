@@ -1,6 +1,5 @@
 package com.me.presentation.model
 
-import com.me.data.entities.CommentData
 import com.me.domain.entities.CommentEntity
 
 data class CommentItem(
@@ -10,7 +9,6 @@ data class CommentItem(
     val email: String,
     val body: String
 )
-
 
 fun List<CommentEntity>.mapToPresentation(): List<CommentItem> =
     map { CommentItem(it.postId, it.id, it.name, it.email, it.body) }

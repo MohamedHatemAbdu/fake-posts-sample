@@ -12,7 +12,6 @@ interface PostCacheDataSource {
     fun getPost(postId: String): Flowable<PostEntity>
 
     fun setPost(post: PostEntity): Flowable<PostEntity>
-
 }
 
 interface PostRemoteDataSource {
@@ -20,5 +19,4 @@ interface PostRemoteDataSource {
     fun getPosts(): Flowable<List<PostEntity>>
 
     fun getPost(postId: String): Flowable<PostEntity>
-
 }

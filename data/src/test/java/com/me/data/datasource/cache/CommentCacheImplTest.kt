@@ -24,7 +24,6 @@ class CommentCacheImplTest {
     private val remoteItem = commentData.copy(name = "remote")
     private val cacheItem = commentData.copy(name = "cached")
 
-
     private val remoteList = listOf(remoteItem)
     private val cacheList = listOf(cacheItem)
 

@@ -11,17 +11,14 @@ import com.me.presentation.model.PostItem
 import kotlinx.android.synthetic.main.include_user_info.view.*
 import kotlinx.android.synthetic.main.item_list_post.view.*
 
-
 class PostListAdapter constructor(private val itemClick: (PostItem) -> Unit) :
     ListAdapter<PostItem, PostListAdapter.ViewHolder>(PostDiffCallback()) {
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder =
         ViewHolder(parent)
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) =
         holder.bind(getItem(position))
-
 
     inner class ViewHolder(parent: ViewGroup) :
         RecyclerView.ViewHolder(parent.inflate(R.layout.item_list_post)) {

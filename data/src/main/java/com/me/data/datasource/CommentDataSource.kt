@@ -1,7 +1,6 @@
 package com.me.data.datasource
 
 import com.me.domain.entities.CommentEntity
-import com.me.domain.entities.PostEntity
 import io.reactivex.Flowable
 
 interface CommentCacheDataSource {

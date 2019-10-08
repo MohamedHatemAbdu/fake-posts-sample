@@ -1,6 +1,5 @@
 package com.me.data.repository
 
-import android.util.Log
 import com.me.data.datasource.CommentCacheDataSource
 import com.me.data.datasource.CommentRemoteDataSource
 import com.me.domain.entities.CommentEntity
@@ -12,8 +11,6 @@ class CommentRepositoryImpl(
     val commentRemoteDataSource: CommentRemoteDataSource
 ) : CommentRepository {
 
-    val LOG_TAG = "CommentRepositoryImpl"
-
     override fun getComments(postId: String, refresh: Boolean): Flowable<List<CommentEntity>> =
         when (refresh) {
 
@@ -21,11 +18,8 @@ class CommentRepositoryImpl(
                 commentRemoteDataSource.getComments(postId).flatMap {
                     commentCacheDataSource.setComments(postId, it)
                 }
-
             }
             false -> commentCacheDataSource.getComments(postId)
                 .onErrorResumeNext { t: Throwable -> getComments(postId, true) }
         }
-
-
 }

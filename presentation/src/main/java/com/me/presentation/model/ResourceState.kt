@@ -1,6 +1,5 @@
 package com.me.presentation.model
 
-
 // TODO : to know what is the sealed class
 sealed class ResourceState {
     object LOADING : ResourceState()

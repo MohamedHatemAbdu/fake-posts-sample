@@ -26,7 +26,6 @@ class UserRemoteImplTest {
 
     private val throwable = Throwable()
 
-
     @Before
     fun setUp() {
         dataSource = UserRemoteImpl(mockApi)
@@ -44,7 +43,6 @@ class UserRemoteImplTest {
         // then
         verify(mockApi).getUsers()
         test.assertValue(remoteList.mapToDomain())
-
     }
 
     @Test
@@ -69,12 +67,10 @@ class UserRemoteImplTest {
         // when
         val test = dataSource.getUser(userId).test()
 
-
         // then
         verify(mockApi).getUser(userId)
 
         test.assertValue(remoteItem.mapToDomain())
-
     }
 
     @Test
@@ -89,6 +85,5 @@ class UserRemoteImplTest {
         // then
         verify(mockApi).getUser(userId)
         test.assertError(throwable)
-
     }
 }

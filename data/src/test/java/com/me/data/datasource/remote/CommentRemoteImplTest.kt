@@ -21,12 +21,11 @@ class CommentRemoteImplTest {
 
     private val postId = postData.id
 
-    private val remoteItem = commentData.copy( name= "remote")
+    private val remoteItem = commentData.copy(name = "remote")
 
     private val remoteList = listOf(remoteItem)
 
     private val throwable = Throwable()
-
 
     @Before
     fun setUp() {
@@ -45,7 +44,6 @@ class CommentRemoteImplTest {
         // then
         verify(mockApi).getComments(postId)
         test.assertValue(remoteList.mapToDomain())
-
     }
 
     @Test
@@ -60,6 +58,4 @@ class CommentRemoteImplTest {
         verify(mockApi).getComments(postId)
         test.assertError(throwable)
     }
-
-
 }

@@ -1,6 +1,5 @@
 package com.me.data.datasource.cache
 
-
 import com.me.data.datasource.UserCacheDataSource
 import com.me.data.db.AppDatabase
 import com.me.data.db.UserDao
@@ -11,7 +10,6 @@ import io.reactivex.Flowable
 
 class UserCacheImpl(private val database: AppDatabase) : UserCacheDataSource {
 
-
     private val dao: UserDao = database.getUsersDao()
 
     override fun getUsers(): Flowable<List<UserEntity>> =
@@ -21,7 +19,6 @@ class UserCacheImpl(private val database: AppDatabase) : UserCacheDataSource {
             }
             it.mapToDomain()
         }
-
 
     override fun setUsers(usersList: List<UserEntity>): Flowable<List<UserEntity>> {
         dao.clear()
@@ -34,11 +31,8 @@ class UserCacheImpl(private val database: AppDatabase) : UserCacheDataSource {
             it.mapToDomain()
         }
 
-
     override fun setUser(user: UserEntity): Flowable<UserEntity> {
         dao.saveUser(user.mapToData())
         return getUser(user.id)
     }
-
-
 }

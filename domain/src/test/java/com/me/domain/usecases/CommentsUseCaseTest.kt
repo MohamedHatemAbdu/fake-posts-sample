@@ -29,10 +29,8 @@ class CommentsUseCaseTest {
         // given
         whenever(mockRepository.getComments(postId, false)).thenReturn(Flowable.just(commentList))
 
-
         // when
         val test = usecase.getComments(postId, false).test()
-
 
         // then
         verify(mockRepository).getComments(postId, false)
@@ -49,10 +47,8 @@ class CommentsUseCaseTest {
         // given
         whenever(mockRepository.getComments(postId, false)).thenReturn(Flowable.error(throwable))
 
-
         // when
         val test = usecase.getComments(postId, false).test()
-
 
         // then
         verify(mockRepository).getComments(postId, false)
@@ -61,6 +57,5 @@ class CommentsUseCaseTest {
         test.assertNotComplete()
         test.assertError(throwable)
         test.assertValueCount(0)
-
     }
 }

@@ -1,10 +1,8 @@
 package com.me.domain
 
-
 import com.me.domain.entities.CommentEntity
 import com.me.domain.entities.PostEntity
 import com.me.domain.entities.UserEntity
-
 
 val userEntity = UserEntity("userId", "name", "username", "email")
 val postEntity = PostEntity("userId", "postId", "title", "body")

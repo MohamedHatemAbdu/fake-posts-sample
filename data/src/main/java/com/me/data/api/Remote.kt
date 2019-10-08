@@ -30,5 +30,4 @@ interface CommentsApi {
 
     @GET("comments")
     fun getComments(@Query("postId") postId: String): Flowable<List<CommentData>>
-
 }

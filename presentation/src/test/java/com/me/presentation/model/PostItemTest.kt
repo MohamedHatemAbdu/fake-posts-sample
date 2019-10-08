@@ -14,10 +14,8 @@ class PostItemTest {
 
         val combinedUserPost = CombinedUserPost(userEntity, postEntity)
 
-
         // when
         val postItem = combinedUserPost.mapToPresentation()
-
 
         // then
         Assert.assertTrue(postItem.postId == postEntity.id)

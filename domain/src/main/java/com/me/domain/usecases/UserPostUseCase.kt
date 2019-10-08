@@ -1,4 +1,4 @@
-package com.me.domain.usecases;
+package com.me.domain.usecases
 
 import com.me.domain.entities.PostEntity
 import com.me.domain.entities.UserEntity
@@ -6,7 +6,6 @@ import com.me.domain.repositories.PostRepository
 import com.me.domain.repositories.UserRepository
 import io.reactivex.Flowable
 import io.reactivex.functions.BiFunction
-
 
 data class CombinedUserPost(val user: UserEntity, val post: PostEntity)
 
@@ -20,7 +19,6 @@ class UsersPostsUseCase constructor(
             BiFunction {
                     usersList, postsList -> map(usersList, postsList)
             })
-
 }
 
 class UserPostUseCase constructor(
@@ -32,7 +30,6 @@ class UserPostUseCase constructor(
             userRepository.getUser(userId, refresh), postRepository.getPost(postId, refresh),
             BiFunction { user, post -> map(user, post) }
         )
-
 }
 
 fun map(user: UserEntity, post: PostEntity): CombinedUserPost = CombinedUserPost(user, post)

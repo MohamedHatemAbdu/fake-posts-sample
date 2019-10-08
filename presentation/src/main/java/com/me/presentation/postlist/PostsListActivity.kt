@@ -43,7 +43,6 @@ class PostsListActivity : AppCompatActivity() {
         // TODO : Why calling this here ?
         injectFeature()
 
-
         if (savedInstanceState == null) {
             vm.get(refresh = false)
         }

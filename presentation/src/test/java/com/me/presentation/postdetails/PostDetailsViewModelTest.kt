@@ -36,12 +36,10 @@ class PostDetailsViewModelTest {
     @JvmField
     val rxSchedulersOverrideRule = RxSchedulersOverrideRule()
 
-
     // TODO : what is the benefit of this InstantTaskExecutorRule ??
     @Rule
     @JvmField
     val instantTaskExecutorRule: TestRule = InstantTaskExecutorRule()
-
 
     @Before
     fun setUp() {
@@ -61,8 +59,6 @@ class PostDetailsViewModelTest {
         // then
         verify(mockUserPostUseCase).getPost(userId, postId, false)
         Assert.assertEquals(combinedUserPost.mapToPresentation(), viewModel.post.value)
-
-
     }
 
     @Test
