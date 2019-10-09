@@ -44,7 +44,7 @@ class PostRepositoryImplTest {
 
         // then
         verify(mockCacheDataSource).getPosts()
-        test.assertValue(cacheList)
+        test.assertError(cacheThrowable)
     }
 
     @Test
