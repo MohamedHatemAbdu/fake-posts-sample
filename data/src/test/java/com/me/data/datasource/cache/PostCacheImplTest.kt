@@ -23,7 +23,6 @@ class PostCacheImplTest {
     private val remoteItem = postData.copy(title = "remote")
     private val cacheItem = postData.copy(title = "cached")
 
-
     private val remoteList = listOf(remoteItem)
     private val cacheList = listOf(cacheItem)
 
@@ -87,7 +86,6 @@ class PostCacheImplTest {
         test.assertError(throwable)
     }
 
-
     @Test
     fun `set posts cache success`() {
         // given
@@ -114,7 +112,6 @@ class PostCacheImplTest {
         test.assertError(throwable)
     }
 
-
     @Test
     fun `set post cache success`() {
         // given
@@ -140,6 +137,4 @@ class PostCacheImplTest {
         verify(mockedPostDao).savePost(remoteItem)
         test.assertError(throwable)
     }
-
-
 }

@@ -1,6 +1,5 @@
 package com.me.data.datasource.cache
 
-
 import com.me.data.datasource.CommentCacheDataSource
 import com.me.data.db.AppDatabase
 import com.me.data.db.CommentDao
@@ -11,11 +10,7 @@ import io.reactivex.Flowable
 
 class CommentCacheImpl(private val database: AppDatabase) : CommentCacheDataSource {
 
-
-    val LOG_TAG = "CommentCacheImpl"
-
     private val dao: CommentDao = database.getCommentsDao()
-
 
     override fun getComments(postId: String): Flowable<List<CommentEntity>> =
         dao.getAllComments(postId).map {
@@ -25,11 +20,8 @@ class CommentCacheImpl(private val database: AppDatabase) : CommentCacheDataSour
             it.mapToDomain()
         }
 
-
     override fun setComments(postId: String, commentsList: List<CommentEntity>): Flowable<List<CommentEntity>> {
         dao.saveAllComments(commentsList.mapToData())
         return getComments(postId)
     }
-
-
 }

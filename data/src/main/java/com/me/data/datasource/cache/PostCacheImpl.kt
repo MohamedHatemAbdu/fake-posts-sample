@@ -1,6 +1,5 @@
 package com.me.data.datasource.cache
 
-
 import com.me.data.datasource.PostCacheDataSource
 import com.me.data.db.AppDatabase
 import com.me.data.db.PostDao
@@ -10,7 +9,6 @@ import com.me.domain.entities.PostEntity
 import io.reactivex.Flowable
 
 class PostCacheImpl(private val database: AppDatabase) : PostCacheDataSource {
-
 
     private val dao: PostDao = database.getPostsDao()
 
@@ -39,6 +37,4 @@ class PostCacheImpl(private val database: AppDatabase) : PostCacheDataSource {
         dao.savePost(post.mapToData())
         return getPost(post.id)
     }
-
-
 }

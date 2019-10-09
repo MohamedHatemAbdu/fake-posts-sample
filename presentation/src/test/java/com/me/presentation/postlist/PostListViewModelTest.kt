@@ -23,7 +23,6 @@ class PostListViewModelTest {
 
     private val mockUseCase: UsersPostsUseCase = mock()
 
-
     private val combinedUserPostList = listOf(combinedUserPost)
     private val throwable = Throwable()
 
@@ -31,7 +30,6 @@ class PostListViewModelTest {
     @Rule
     @JvmField
     val rxSchedulersOverrideRule = RxSchedulersOverrideRule()
-
 
     // TODO : what is the benefit of this InstantTaskExecutorRule ??
     @Rule
@@ -67,7 +65,7 @@ class PostListViewModelTest {
         whenever(mockUseCase.getPosts(false))
             .thenReturn(Flowable.error(throwable))
 
-        //whe
+        // whe
         viewModel.get(false)
 
         // then
@@ -76,7 +74,5 @@ class PostListViewModelTest {
             Resource(ResourceState.ERROR, null, throwable.message),
             viewModel.posts.value
         )
-
     }
-
 }

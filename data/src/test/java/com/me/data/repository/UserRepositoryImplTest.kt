@@ -23,13 +23,11 @@ class UserRepositoryImplTest {
     private val cacheItem = userEntity.copy(name = "cache")
     private val remoteItem = userEntity.copy(name = "remote")
 
-
     private val cacheList = listOf(cacheItem)
     private val remoteList = listOf(remoteItem)
 
     private val cacheThrowable = Throwable()
     private val remoteThrowable = Throwable()
-
 
     @Before
     fun setUp() {
@@ -44,18 +42,15 @@ class UserRepositoryImplTest {
         // when
         val test = repository.getUsers(false).test()
 
-
         // then
         verify(mockCacheDataSource).getUsers()
         test.assertValue(cacheList)
-
     }
-
 
     @Test
     fun `get users cache fail fallback remote succeeds`() {
 
-        //given
+        // given
         whenever(mockCacheDataSource.getUsers()).thenReturn(Flowable.error(cacheThrowable))
         whenever(mockRemoteDataSource.getUsers()).thenReturn(Flowable.just(remoteList))
         whenever(mockCacheDataSource.setUsers(remoteList)).thenReturn(Flowable.just(remoteList))
@@ -63,7 +58,7 @@ class UserRepositoryImplTest {
         // when
         val test = repository.getUsers(false).test()
 
-        //then
+        // then
         verify(mockCacheDataSource).getUsers()
         verify(mockRemoteDataSource).getUsers()
         verify(mockCacheDataSource).setUsers(remoteList)
@@ -73,48 +68,43 @@ class UserRepositoryImplTest {
     @Test
     fun `get users cache fail fallback remote fails`() {
 
-        //given
+        // given
         whenever(mockCacheDataSource.getUsers()).thenReturn(Flowable.error(cacheThrowable))
         whenever(mockRemoteDataSource.getUsers()).thenReturn(Flowable.error(remoteThrowable))
 
-        //when
+        // when
         val test = repository.getUsers(false).test()
 
-
-        //then
+        // then
         verify(mockCacheDataSource).getUsers()
         verify(mockRemoteDataSource).getUsers()
         test.assertError(remoteThrowable)
-
-
     }
 
     @Test
     fun `get users remote success`() {
-        //given
+        // given
         whenever(mockRemoteDataSource.getUsers()).thenReturn(Flowable.just(remoteList))
         whenever(mockCacheDataSource.setUsers(remoteList)).thenReturn(Flowable.just(remoteList))
 
-        //when
+        // when
         val test = repository.getUsers(true).test()
 
-        //then
+        // then
         verify(mockRemoteDataSource).getUsers()
         verify(mockCacheDataSource).setUsers(remoteList)
         test.assertValue(remoteList)
-
     }
 
     @Test
     fun `get users remote fail`() {
-        //given
+        // given
         whenever(mockRemoteDataSource.getUsers()).thenReturn(Flowable.error(remoteThrowable))
 
-
-        //when
+        // when
         val test = repository.getUsers(true).test()
 
-        //then
+        // then
         verify(mockRemoteDataSource).getUsers()
         test.assertError(remoteThrowable)
     }
@@ -127,18 +117,15 @@ class UserRepositoryImplTest {
         // when
         val test = repository.getUser(userId, false).test()
 
-
         // then
         verify(mockCacheDataSource).getUser(userId)
         test.assertValue(cacheItem)
-
     }
-
 
     @Test
     fun `get user cache fail fallback remote succeeds`() {
 
-        //given
+        // given
         whenever(mockCacheDataSource.getUser(userId)).thenReturn(Flowable.error(cacheThrowable))
         whenever(mockRemoteDataSource.getUser(userId)).thenReturn(Flowable.just(remoteItem))
         whenever(mockCacheDataSource.setUser(remoteItem)).thenReturn(Flowable.just(remoteItem))
@@ -146,7 +133,7 @@ class UserRepositoryImplTest {
         // when
         val test = repository.getUser(userId, false).test()
 
-        //then
+        // then
         verify(mockCacheDataSource).getUser(userId)
         verify(mockRemoteDataSource).getUser(userId)
         verify(mockCacheDataSource).setUser(remoteItem)
@@ -156,49 +143,44 @@ class UserRepositoryImplTest {
     @Test
     fun `get user cache fail fallback remote fails`() {
 
-        //given
+        // given
         whenever(mockCacheDataSource.getUser(userId)).thenReturn(Flowable.error(cacheThrowable))
         whenever(mockRemoteDataSource.getUser(userId)).thenReturn(Flowable.error(remoteThrowable))
 
-        //when
+        // when
         val test = repository.getUser(userId, false).test()
 
-
-        //then
+        // then
         verify(mockCacheDataSource).getUser(userId)
         verify(mockRemoteDataSource).getUser(userId)
         test.assertError(remoteThrowable)
-
-
     }
 
     @Test
     fun `get user remote success`() {
-        //given
+        // given
         whenever(mockRemoteDataSource.getUser(userId)).thenReturn(Flowable.just(remoteItem))
         whenever(mockCacheDataSource.setUser(remoteItem)).thenReturn(Flowable.just(remoteItem))
 
-        //when
+        // when
         val test = repository.getUser(userId, true).test()
 
-        //then
+        // then
         verify(mockRemoteDataSource).getUser(userId)
         verify(mockCacheDataSource).setUser(remoteItem)
         test.assertValue(remoteItem)
-
     }
 
     @Test
     fun `get user remote fail`() {
-        //given
+        // given
         whenever(mockRemoteDataSource.getUser(userId)).thenReturn(Flowable.error(remoteThrowable))
 
-        //when
+        // when
         val test = repository.getUser(userId, true).test()
 
-        //then
+        // then
         verify(mockRemoteDataSource).getUser(userId)
         test.assertError(remoteThrowable)
-
     }
 }

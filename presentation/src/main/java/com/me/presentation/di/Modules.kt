@@ -25,7 +25,6 @@ import org.koin.core.module.Module
 import org.koin.dsl.module
 import retrofit2.Retrofit
 
-
 // TODO : why using this function
 fun injectFeature() = loadFeature
 
@@ -43,14 +42,12 @@ private val loadFeature by lazy {
 val viewModelModule: Module = module {
     viewModel { PostListViewModel(usersPostsUseCase = get()) }
     viewModel { PostDetailsViewModel(commentsUseCase = get(), userPostUseCase = get()) }
-
 }
 
 val useCaseModule: Module = module {
     factory { UsersPostsUseCase(userRepository = get(), postRepository = get()) }
     factory { UserPostUseCase(userRepository = get(), postRepository = get()) }
     factory { CommentsUseCase(commentRepository = get()) }
-
 }
 
 val repositoryModule: Module = module {
@@ -62,7 +59,6 @@ val repositoryModule: Module = module {
             commentRemoteDataSource = get()
         ) as CommentRepository
     }
-
 }
 
 val dataSourceModule: Module = module {
@@ -78,7 +74,6 @@ val networkModule: Module = module {
     single { usersApi }
     single { postsApi }
     single { commentsApi }
-
 }
 
 val localModules = module {

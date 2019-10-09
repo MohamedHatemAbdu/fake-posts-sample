@@ -17,7 +17,6 @@ class UsersPostsUseCaseTest {
     private val mockUserRepository: UserRepository = mock()
     private val mockPostRepository: PostRepository = mock()
 
-
     private val usersList = listOf(userEntity)
     private val postsList = listOf(postEntity)
 
@@ -27,7 +26,6 @@ class UsersPostsUseCaseTest {
     fun setUp() {
         usersPostsUseCase = UsersPostsUseCase(mockUserRepository, mockPostRepository)
     }
-
 
     @Test
     fun `repository get success`() {
@@ -47,7 +45,6 @@ class UsersPostsUseCaseTest {
         // TODO : what is assertValueCount?
         test.assertValueCount(1)
         test.assertValue(map(usersList, postsList))
-
     }
 
     @Test
@@ -68,9 +65,7 @@ class UsersPostsUseCaseTest {
         test.assertNotComplete()
         test.assertError(throwable)
         test.assertValueCount(0)
-
     }
-
 }
 
 class UserPostUseCaseTest {
@@ -78,7 +73,6 @@ class UserPostUseCaseTest {
     private lateinit var userPostUseCase: UserPostUseCase
     private val mockUserRepository: UserRepository = mock()
     private val mockPostRepository: PostRepository = mock()
-
 
     private val userId = userEntity.id
     private val postId = postEntity.id
@@ -89,7 +83,6 @@ class UserPostUseCaseTest {
     fun setUp() {
         userPostUseCase = UserPostUseCase(mockUserRepository, mockPostRepository)
     }
-
 
     @Test
     fun `repository get success`() {
@@ -109,7 +102,6 @@ class UserPostUseCaseTest {
         // TODO : what is assertValueCount?
         test.assertValueCount(1)
         test.assertValue(map(userEntity, postEntity))
-
     }
 
     @Test
@@ -129,7 +121,5 @@ class UserPostUseCaseTest {
         test.assertNotComplete()
         test.assertError(throwable)
         test.assertValueCount(0)
-
     }
-
 }

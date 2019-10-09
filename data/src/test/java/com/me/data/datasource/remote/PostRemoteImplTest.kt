@@ -26,7 +26,6 @@ class PostRemoteImplTest {
 
     private val throwable = Throwable()
 
-
     @Before
     fun setUp() {
         dataSource = PostRemoteImpl(mockApi)
@@ -44,7 +43,6 @@ class PostRemoteImplTest {
         // then
         verify(mockApi).getPosts()
         test.assertValue(remoteList.mapToDomain())
-
     }
 
     @Test
@@ -69,12 +67,10 @@ class PostRemoteImplTest {
         // when
         val test = dataSource.getPost(postId).test()
 
-
         // then
         verify(mockApi).getPost(postId)
 
         test.assertValue(remoteItem.mapToDomain())
-
     }
 
     @Test
@@ -87,8 +83,7 @@ class PostRemoteImplTest {
         val test = dataSource.getPost(postId).test()
 
         // then
-        verify(mockApi).getPost(postId )
+        verify(mockApi).getPost(postId)
         test.assertError(throwable)
-
     }
 }

@@ -2,7 +2,6 @@ package com.me.data.entities
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.me.domain.entities.PostEntity
 import com.me.domain.entities.UserEntity
 import com.squareup.moshi.Json
 

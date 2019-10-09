@@ -5,13 +5,10 @@ import com.me.data.datasource.PostRemoteDataSource
 import com.me.domain.entities.PostEntity
 import io.reactivex.Flowable
 
-
-class PostRepositoryImpl
-    (
+class PostRepositoryImpl(
     val postCacheDataSource: PostCacheDataSource,
     val postRemoteDataSource: PostRemoteDataSource
 ) : PostRepository {
-
 
     override fun getPosts(refresh: Boolean): Flowable<List<PostEntity>> =
         when (refresh) {
@@ -25,10 +22,7 @@ class PostRepositoryImpl
                 postCacheDataSource.getPosts()
                     .onErrorResumeNext { t: Throwable -> getPosts(true) }
             }
-
-
         }
-
 
     override fun getPost(postId: String, refresh: Boolean): Flowable<PostEntity> =
         when (refresh) {
@@ -36,16 +30,11 @@ class PostRepositoryImpl
             true -> {
                 postRemoteDataSource.getPost(postId).flatMap {
                     postCacheDataSource.setPost(it)
-
                 }
             }
             false -> postCacheDataSource.getPost(postId)
-                .onErrorResumeNext {t: Throwable  ->
+                .onErrorResumeNext { t: Throwable ->
                     getPost(postId, true)
                 }
-
         }
-
-
 }
-

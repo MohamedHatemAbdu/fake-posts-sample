@@ -23,7 +23,6 @@ class UserCacheImplTest {
     private val remoteItem = userData.copy(name = "remote")
     private val cacheItem = userData.copy(name = "cached")
 
-
     private val remoteList = listOf(remoteItem)
     private val cacheList = listOf(cacheItem)
 
@@ -87,7 +86,6 @@ class UserCacheImplTest {
         test.assertError(throwable)
     }
 
-
     @Test
     fun `set users cache success`() {
         // given
@@ -113,7 +111,6 @@ class UserCacheImplTest {
         verify(mockedUserDao).saveAllUsers(remoteList)
         test.assertError(throwable)
     }
-
 
     @Test
     fun `set user cache success`() {

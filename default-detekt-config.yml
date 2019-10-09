@@ -170,7 +170,7 @@ exceptions:
       - Throwable
     allowedExceptionNameRegex: "^(_|(ignore|expected).*)"
   TooGenericExceptionThrown:
-    active: true
+    active: false
     exceptionNames:
       - Error
       - Exception
@@ -476,7 +476,7 @@ style:
   NestedClassesVisibility:
     active: false
   NewLineAtEndOfFile:
-    active: true
+    active: false
   NoTabs:
     active: false
   OptionalAbstractKeyword:
@@ -545,6 +545,6 @@ style:
   VarCouldBeVal:
     active: false
   WildcardImport:
-    active: true
+    active: false
     excludes: "**/test/**,**/androidTest/**,**/*.Test.kt,**/*.Spec.kt,**/*.Spek.kt"
     excludeImports: 'java.util.*,kotlinx.android.synthetic.*'

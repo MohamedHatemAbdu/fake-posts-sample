@@ -8,8 +8,6 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 
-
-
 fun View.visible() {
     visibility = View.VISIBLE
 }
@@ -24,7 +22,6 @@ fun View.gone() {
 
 fun ImageView.loadAvatar(email: String) =
     loadImageRound("https://api.adorable.io/avatars/285/$email")
-
 
 fun SwipeRefreshLayout.startRefreshing() {
     isRefreshing = true

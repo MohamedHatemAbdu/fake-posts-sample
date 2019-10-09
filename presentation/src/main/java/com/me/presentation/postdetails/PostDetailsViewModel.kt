@@ -14,14 +14,12 @@ import com.me.presentation.model.mapToPresentation
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 
-
 data class UserIdPostId(val userId: String, val postId: String)
 
 class PostDetailsViewModel(
     val userPostUseCase: UserPostUseCase,
     val commentsUseCase: CommentsUseCase
 ) : ViewModel() {
-
 
     val post = MutableLiveData<PostItem>()
     val comments = MutableLiveData<Resource<List<CommentItem>>>()
@@ -42,8 +40,6 @@ class PostDetailsViewModel(
             .subscribeOn(Schedulers.io())
             .map { it.mapToPresentation() }
             .subscribe({ comments.setSuccess(it) }, { comments.setError(it.message) }))
-
-
     }
 
     override fun onCleared() {

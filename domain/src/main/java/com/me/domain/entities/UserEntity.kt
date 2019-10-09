@@ -1,6 +1,5 @@
 package com.me.domain.entities
 
-
 data class UserEntity(
     val id: String,
     val name: String,

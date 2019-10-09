@@ -5,8 +5,6 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.me.data.entities.CommentData
-import com.me.data.entities.UserData
-import io.reactivex.Completable
 import io.reactivex.Flowable
 
 @Dao
@@ -20,5 +18,4 @@ interface CommentDao {
 
     @Query("DELETE FROM comment")
     fun clear()
-
 }

@@ -49,7 +49,6 @@ class PostDetailsActivity : AppCompatActivity() {
 
         vm.post.observe(this, Observer { updatePost(it) })
         vm.comments.observe(this, Observer { updateComments(it) })
-
     }
 
     private fun updatePost(postItem: PostItem?) {

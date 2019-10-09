@@ -15,16 +15,15 @@ class PostListViewModel constructor(private val usersPostsUseCase: UsersPostsUse
     val posts = MutableLiveData<Resource<List<PostItem>>>()
     private val compositeDisposable = CompositeDisposable()
 
-
     fun get(refresh: Boolean = false) =
         compositeDisposable.add(
             usersPostsUseCase.getPosts(refresh)
-            .doOnSubscribe {posts.setLoading()}
+            .doOnSubscribe { posts.setLoading() }
             .subscribeOn(Schedulers.io())
             .map { it.mapToPresentation() }
             .subscribe({
                 posts.setSuccess(it)
-            },{
+            }, {
                 posts.setError(it.message)
             })
         )

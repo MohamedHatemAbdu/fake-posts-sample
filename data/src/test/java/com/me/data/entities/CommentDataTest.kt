@@ -1,7 +1,6 @@
 package com.me.data.entities
 
 import com.me.data.commentData
-import com.me.data.userData
 import org.junit.Test
 
 class CommentDataTest {
@@ -19,6 +18,5 @@ class CommentDataTest {
         assert(model.name == commentData.name)
         assert(model.email == commentData.email)
         assert(model.body == commentData.body)
-
     }
 }
