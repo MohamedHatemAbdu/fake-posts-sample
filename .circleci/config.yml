@@ -9,6 +9,7 @@ jobs:
       only:
         - develop
         - master
+        - feature/add_circle_ci
     working_directory: ~/FakePostsSampleApp
     docker:
       - image: circleci/android:api-28
@@ -18,7 +19,7 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: gradle-{{ checksum "build.gradle" }}-{{ checksum  "buildSrc/src/main/java/Dependencies.kt" }}-{{ checksum  "gradle/wrapper/gradle-wrapper.properties" }}
+          key: gradle-{{ checksum "build.gradle" }}-{{ checksum  "dependencies.kt" }}-{{ checksum  "gradle/wrapper/gradle-wrapper.properties" }}
       - run:
           name: Run Detekt
           command: ./gradlew detekt
