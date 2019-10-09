@@ -7,7 +7,7 @@ Personal project to try out things inspired from [Android-Kotlin-Clean-Architect
 - Simplified Dependency Injection with Koin
 - Easy to RUDT (read, update, debug & test).
 - Playground to try different libraries/frameworks.
-- [CircleCI](https://circleci.com/gh/MohamedHatem/workflows/fake-posts-sample)
+- [CircleCI](https://circleci.com/gh/MohamedHatem/fake-posts-sample)
 - [koin (Kotlin Dependency Injection framework)](https://github.com/InsertKoinIO/koin)
 - [detekt (Kotlin Static Code Analysis Tool)](https://github.com/arturbosch/detekt)
 - [ktlint (Kotlin Style Guide Static Code Analysis Tool)](https://github.com/shyiko/ktlint) [Kotlin Style Guide](https://android.github.io/kotlin-guides/style.html)
