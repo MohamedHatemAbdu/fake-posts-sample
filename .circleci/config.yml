@@ -19,7 +19,7 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: gradle-{{ checksum "build.gradle" }}-{{ checksum  "dependencies.kt" }}-{{ checksum  "gradle/wrapper/gradle-wrapper.properties" }}
+          key: gradle-{{ checksum "build.gradle" }}-{{ checksum  "dependencies.gradle" }}-{{ checksum  "gradle/wrapper/gradle-wrapper.properties" }}
       - run:
           name: Run Detekt
           command: ./gradlew detekt
