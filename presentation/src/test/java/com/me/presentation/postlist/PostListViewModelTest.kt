@@ -75,4 +75,5 @@ class PostListViewModelTest {
             viewModel.posts.value
         )
     }
+
 }

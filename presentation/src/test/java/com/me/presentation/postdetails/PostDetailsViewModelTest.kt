@@ -31,10 +31,10 @@ class PostDetailsViewModelTest {
 
     private val throwable = Throwable()
 
-    // TODO : what is the benefit of this RxSchedulersOverrideRule ??
-    @Rule
-    @JvmField
-    val rxSchedulersOverrideRule = RxSchedulersOverrideRule()
+//    // TODO : what is the benefit of this RxSchedulersOverrideRule ??
+//    @Rule
+//    @JvmField
+//    val rxSchedulersOverrideRule = RxSchedulersOverrideRule()
 
     // TODO : what is the benefit of this InstantTaskExecutorRule ??
     @Rule
